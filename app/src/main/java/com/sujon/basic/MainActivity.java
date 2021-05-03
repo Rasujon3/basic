@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     ProgressBar progressbar;
     Button alertButton;
     RadioButton radioButton;
+    CheckBox checkbox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Initialize();
+
+        checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked)
+                Toast.makeText(MainActivity.this, "Checked", Toast.LENGTH_SHORT).show();
+                else
+                    Toast.makeText(MainActivity.this, "Not Checked", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         radioButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -121,5 +132,6 @@ public class MainActivity extends AppCompatActivity {
         progressbar = findViewById(R.id.progressbar);
         alertButton = findViewById(R.id.alertButton);
         radioButton = findViewById(R.id.radioButton);
+        checkbox = findViewById(R.id.checkbox);
     }
 }

@@ -86,6 +86,15 @@
         >
 
         </ImageView>
+        <CheckBox
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text="Check"
+            android:layout_margin="5dp"
+            android:id="@+id/checkbox"
+        >
+
+        </CheckBox>
 
 
     </GridLayout>
