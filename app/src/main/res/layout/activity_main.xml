@@ -78,6 +78,14 @@
         >
 
         </RadioButton>
+        <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/imageView"
+                android:src="@drawable/image"
+        >
+
+        </ImageView>
 
 
     </GridLayout>
@@ -90,6 +98,7 @@
             app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="8dp">
 
     </ProgressBar>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
