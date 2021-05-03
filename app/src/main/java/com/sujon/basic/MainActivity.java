@@ -1,10 +1,12 @@
 package com.sujon.basic;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -16,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     Button textViewButton, snackBarButton, progressBarButton;
     ConstraintLayout constraintLayout;
     ProgressBar progressbar;
+    Button alertButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +75,29 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        alertButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new AlertDialog.Builder(MainActivity.this)
+                        .setTitle("Warning!!")
+                        .setMessage("This is an alert")
+                        .setCancelable(false)
+                        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        })
+                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        }).show();
+
+            }
+        });
+
 
     }
 
@@ -84,5 +110,6 @@ public class MainActivity extends AppCompatActivity {
         constraintLayout = findViewById(R.id.constraintlayout);
         progressBarButton = findViewById(R.id.progressBarButton);
         progressbar = findViewById(R.id.progressbar);
+        alertButton = findViewById(R.id.alertButton);
     }
 }
