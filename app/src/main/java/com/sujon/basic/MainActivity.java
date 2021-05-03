@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     CheckBox checkbox;
     Switch mySwitch;
     Spinner mySpinner;
+    Button listViewButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Initialize();
+
+        listViewButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MainActivity3.class);
+                startActivity(intent);
+            }
+        });
 
         ArrayAdapter<CharSequence> myadapter = ArrayAdapter.createFromResource(this, R.array.countryName, android.R.layout.simple_spinner_item);
         myadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -164,5 +173,6 @@ public class MainActivity extends AppCompatActivity {
         checkbox = findViewById(R.id.checkbox);
         mySwitch = findViewById(R.id.mySwitch);
         mySpinner = findViewById(R.id.mySpinner);
+        listViewButton = findViewById(R.id.listViewButton);
     }
 }
