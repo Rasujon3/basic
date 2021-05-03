@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     RadioButton radioButton;
     CheckBox checkbox;
     Switch mySwitch;
+    Spinner mySpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +29,28 @@ public class MainActivity extends AppCompatActivity {
 
         Initialize();
 
+        ArrayAdapter<CharSequence> myadapter = ArrayAdapter.createFromResource(this, R.array.countryName, android.R.layout.simple_spinner_item);
+        myadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mySpinner.setAdapter(myadapter);
+
+        mySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String countryName = myadapter.getItem(position).toString();
+                Toast.makeText(MainActivity.this, countryName,Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
         mySwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked)
-                Toast.makeText(MainActivity.this, "ON", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "ON", Toast.LENGTH_SHORT).show();
                 else
                     Toast.makeText(MainActivity.this, "OFF", Toast.LENGTH_SHORT).show();
             }
@@ -42,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked)
-                Toast.makeText(MainActivity.this, "Checked", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Checked", Toast.LENGTH_SHORT).show();
                 else
                     Toast.makeText(MainActivity.this, "Not Checked", Toast.LENGTH_SHORT).show();
             }
@@ -52,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked)
-                Toast.makeText(MainActivity.this, "Checked", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Checked", Toast.LENGTH_SHORT).show();
                 else
                     Toast.makeText(MainActivity.this, "Not Checked", Toast.LENGTH_SHORT).show();
             }
@@ -145,5 +163,6 @@ public class MainActivity extends AppCompatActivity {
         radioButton = findViewById(R.id.radioButton);
         checkbox = findViewById(R.id.checkbox);
         mySwitch = findViewById(R.id.mySwitch);
+        mySpinner = findViewById(R.id.mySpinner);
     }
 }

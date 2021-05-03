@@ -104,6 +104,12 @@
         >
 
         </Switch>
+        <Spinner
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/mySpinner"
+        android:layout_margin="5dp"
+        />
 
 
     </GridLayout>
