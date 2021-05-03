@@ -3,6 +3,7 @@ package com.sujon.basic;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,8 +13,9 @@ import com.google.android.material.snackbar.Snackbar;
 public class MainActivity extends AppCompatActivity {
 
     Button buttonTutorial, toastButton, editTextButton;
-    Button textViewButton, snackBarButton;
+    Button textViewButton, snackBarButton, progressBarButton;
     ConstraintLayout constraintLayout;
+    ProgressBar progressbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +23,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Initialize();
+
+        progressBarButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                progressbar.setVisibility(View.VISIBLE);
+            }
+        });
 
         editTextButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,5 +82,7 @@ public class MainActivity extends AppCompatActivity {
         textViewButton = findViewById(R.id.textViewButton);
         snackBarButton = findViewById(R.id.snackBarButton);
         constraintLayout = findViewById(R.id.constraintlayout);
+        progressBarButton = findViewById(R.id.progressBarButton);
+        progressbar = findViewById(R.id.progressbar);
     }
 }
