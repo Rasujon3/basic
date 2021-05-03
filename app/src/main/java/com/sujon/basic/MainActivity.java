@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     Button alertButton;
     RadioButton radioButton;
     CheckBox checkbox;
+    Switch mySwitch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Initialize();
+
+        mySwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked)
+                Toast.makeText(MainActivity.this, "ON", Toast.LENGTH_SHORT).show();
+                else
+                    Toast.makeText(MainActivity.this, "OFF", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -133,5 +144,6 @@ public class MainActivity extends AppCompatActivity {
         alertButton = findViewById(R.id.alertButton);
         radioButton = findViewById(R.id.radioButton);
         checkbox = findViewById(R.id.checkbox);
+        mySwitch = findViewById(R.id.mySwitch);
     }
 }
