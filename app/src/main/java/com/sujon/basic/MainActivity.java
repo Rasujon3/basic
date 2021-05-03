@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     Switch mySwitch;
     Spinner mySpinner;
     Button listViewButton;
+    Button webViewButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Initialize();
+
+        webViewButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MainActivity4.class);
+                startActivity(intent);
+            }
+        });
 
         listViewButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -174,5 +183,6 @@ public class MainActivity extends AppCompatActivity {
         mySwitch = findViewById(R.id.mySwitch);
         mySpinner = findViewById(R.id.mySpinner);
         listViewButton = findViewById(R.id.listViewButton);
+        webViewButton = findViewById(R.id.webViewButton);
     }
 }

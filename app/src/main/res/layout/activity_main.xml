@@ -119,6 +119,14 @@
                 android:text="ListView"
         />
 
+        <Button
+                android:layout_height="100dp"
+                android:layout_width="100dp"
+                android:id="@+id/webViewButton"
+                android:layout_margin="5dp"
+                android:text="WebView"
+        />
+
 
     </GridLayout>
     <ProgressBar
