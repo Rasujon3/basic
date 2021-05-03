@@ -6,11 +6,14 @@ import android.widget.Button;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
 
     Button buttonTutorial, toastButton, editTextButton;
-    Button textViewButton;
+    Button textViewButton, snackBarButton;
+    ConstraintLayout constraintLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +54,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        snackBarButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar snackbar = Snackbar.make(constraintLayout, "This is SnackBar", Snackbar.LENGTH_LONG);
+                snackbar.show();
+
+            }
+        });
+
 
     }
 
@@ -59,5 +71,7 @@ public class MainActivity extends AppCompatActivity {
         toastButton = findViewById(R.id.toastButton);
         editTextButton = findViewById(R.id.editTextButton);
         textViewButton = findViewById(R.id.textViewButton);
+        snackBarButton = findViewById(R.id.snackBarButton);
+        constraintLayout = findViewById(R.id.constraintlayout);
     }
 }
